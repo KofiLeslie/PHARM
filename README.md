@@ -1,6 +1,6 @@
 # PHARM
-Username: admin
+<strong>Username:</strong> admin
 <br>
-Password:admin123
+<strong>Password:</strong> admin123
 <br>
-database: pharmacy
+<strong>Database:</strong> pharmacy
