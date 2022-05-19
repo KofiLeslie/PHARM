@@ -3,15 +3,19 @@ var isAdmin = "false";
 function validate() {
   var uname = document.forms["login-form"]["username"].value;
   var pswd = document.forms["login-form"]["password"].value;
+  
   var xhttp = new XMLHttpRequest();
+  // console.log(uname);
 	xhttp.onreadystatechange = function() {
 		if(xhttp.readyState = 4 && xhttp.status == 200)
 			isAdmin = xhttp.responseText;
+      // console.log(xhttp.responseText);
 	};
+
 	xhttp.open("GET", "php/validateCredentials.php?action=is_admin&uname=" + uname + "&pswd=" + pswd, true);
 	xhttp.send();
 }
-
+// console.log(isAdmin);
 function validateCredentials() {
   if(isAdmin == "true")
     return true;
@@ -87,7 +91,7 @@ function isSetupDone() {
   xhttp.open("GET", "php/validateCredentials.php?action=is_setup_done", false);
   xhttp.send();
   if(xhttp.responseText == "true")
-    window.location.href = "http://localhost/Pharmacy-Management/login.php";
+    window.location.href = "http://localhost/PHARM/login.php";
 }
 
 function displayForgotPasswordForm() {

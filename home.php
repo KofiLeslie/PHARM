@@ -1,3 +1,8 @@
+<?php session_start(); 
+if (empty($_SESSION['ad_id'])) {
+  header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -97,7 +102,7 @@
                         $total = $total + $row['NET_TOTAL'];
                     ?>
                     <th>Total Sales</th>
-                    <th class="text-success">Rs. <?php echo $total; ?></th>
+                    <th class="text-success">GHS. <?php echo $total; ?></th>
                   </tr>
                   <tr>
                     <?php
@@ -110,7 +115,7 @@
                     }
                     ?>
                     <th>Total Purchase</th>
-                    <th class="text-danger">Rs. <?php echo $total; ?></th>
+                    <th class="text-danger">GHS. <?php echo $total; ?></th>
                   </tr>
                 </tbody>
               </table>
@@ -143,6 +148,7 @@
             createSection2('bar-chart', 'add_purchase.php', 'Add New Purchase');
             createSection2('book', 'sales_report.php', 'Sales Report');
             createSection2('book', 'purchase_report.php', 'Purchase Report');
+            createSection2('user', 'purchase_report.php', 'Add New Admin');
           ?>
 
         </div>

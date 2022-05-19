@@ -16,6 +16,7 @@
   if(isset($_GET['action']) && $_GET['action'] == 'is_admin')
     isAdmin();
 
+ 
   function isAdmin() {
     require "db_connection.php";
     if($con) {
@@ -25,7 +26,12 @@
       $query = "SELECT * FROM admin_credentials WHERE USERNAME = '$username' AND PASSWORD = '$password'";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
+      // print_r($row);
+      // die;
       if($row)  {
+        // $_SESSION['ad_username'] = $row['LNAME'] .' '. $row['FNAME'];
+        // $_SESSION['ad_id'] = $row['ID'];
+      
         $query = "UPDATE admin_credentials SET IS_LOGGED_IN = 'true'";
         $result = mysqli_query($con, $query);
         echo "true";

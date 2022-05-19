@@ -1,3 +1,8 @@
+<?php session_start(); 
+if (empty($_SESSION['ad_id'])) {
+  header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -27,7 +32,7 @@
           // header section end
           require "php/db_connection.php";
           if($con) {
-            $query = "SELECT * FROM admin_credentials";
+            $query = "SELECT * FROM admin_credentials WHERE ID = ".$_SESSION['ad_id'];
             $result = mysqli_query($con, $query);
             $row = mysqli_fetch_array($result);
             $pharmacy_name = $row['PHARMACY_NAME'];

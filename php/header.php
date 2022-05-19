@@ -1,9 +1,11 @@
+
 <?php
+
   function createHeader($icon, $heading, $sub_heading) {
     echo '
     <section class="row content-header">
       <div class="header-title col-md-11">
-        <p class="h4 pt-2"><i class="fa fa-'.$icon.'"></i>&emsp;'.$heading.'&emsp; Leslie Brobbey</p>
+        <p class="h4 pt-2"><i class="fa fa-'.$icon.'"></i>&emsp;'.$heading.'&emsp;'.$_SESSION['ad_username'].'  </p>
         &emsp;&emsp;&emsp;<small class="font-weight-bold h6">'.$sub_heading.'</small>
       </div>
       <div class="col-md-1 user_options">
