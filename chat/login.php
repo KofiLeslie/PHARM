@@ -10,7 +10,12 @@
  
  		<div id="header">
  			My Chat
- 			<div style="font-size: 20px;font-family: myFont;">Login</div>
+ 			<div class="row">
+			 <div class="col-sm-4" style="font-size: 20px;font-family: myFont;">
+			 <a href="../home.php" class="text-primary">Back to Pharmacy</a>
+			 Login 
+			</div>
+			 </div>
  		</div>
  		<div id="error">some text</div>
 		<form id="myform">

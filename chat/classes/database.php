@@ -16,7 +16,7 @@ Class Database
 	private function connect()
 	{
 
-		$string = "mysql:host=localhost;dbname=mychat_db";
+		$string = "mysql:host=localhost;dbname=pharmacy";
 		try
 		{
 
