@@ -26,6 +26,46 @@
   </div>
 </div>
 
+<!-- customer gender control -->
+<div class="row col col-md-12">
+  <div class="col col-md-12 form-group">
+    <label class="font-weight-bold" for="gender">Gender :</label>
+    <select class="form-control" name="gender" id="gender">
+      <option value="" selected disabled>---SELECT GENDER---</option>
+      <option value="Male">MALE</option>
+      <option value="Female">FEMALE</option>
+    </select>
+    <code class="text-danger small font-weight-bold float-right" id="gender_error" style="display: none;"></code>
+  </div>
+</div>
+
+<!-- customer username control -->
+<div class="row col col-md-12">
+  <div class="col col-md-12 form-group">
+    <label class="font-weight-bold" for="username">Username :</label>
+   <input class="form-control" type="text" name="username" id="username" placeholder="USERNAME..." onkeyup="validateName(this.value, 'name_error');">
+    <code class="text-danger small font-weight-bold float-right" id="username_error" style="display: none;"></code>
+  </div>
+</div>
+
+<!-- customer email control -->
+<div class="row col col-md-12">
+  <div class="col col-md-12 form-group">
+    <label class="font-weight-bold" for="email">E-MAIL :</label>
+   <input class="form-control" type="email" name="email" id="email" placeholder="eg abcd@efgh.com" onkeyup="validateName(this.value, 'name_error');">
+    <code class="text-danger small font-weight-bold float-right" id="" style="display: none;"></code>
+  </div>
+</div>
+
+<!-- customer email control -->
+<div class="row col col-md-12">
+  <div class="col col-md-12 form-group">
+    <label class="font-weight-bold" for="password">PASSWORD :</label>
+   <input class="form-control" type="password" name="password" id="password" placeholder="eg abcd@efgh.com" onkeyup="validateName(this.value, 'name_error');">
+    <code class="text-danger small font-weight-bold float-right" id="" style="display: none;"></code>
+  </div>
+</div>
+
 <!-- customes's doctor name -->
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">

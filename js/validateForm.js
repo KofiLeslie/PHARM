@@ -43,7 +43,7 @@ function validateContactNumber(contact_number, error) {
 function validateAddress(address, error) {
   var result = document.getElementById(error);
   result.style.display = "block";
-  if(address.trim().length < 10) {
+  if(address.trim().length < 1) {
     result.innerHTML = "Please enter more specific address!";
     return false;
   }
@@ -115,6 +115,11 @@ function addCustomer() {
   var customer_address = document.getElementById("customer_address");
   var doctor_name = document.getElementById("customer_doctors_name");
   var doctor_address = document.getElementById("customer_doctors_address");
+  var gender = document.getElementById("gender");
+  var username = document.getElementById("username");
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
+  
   if(!validateName(customer_name.value, "name_error"))
     customer_name.focus();
   else if(!validateContactNumber(contact_number.value, "contact_number_error"))
@@ -123,6 +128,12 @@ function addCustomer() {
     customer_address.focus();
   else if(!validateName(doctor_name.value, 'doctor_name_error'))
     doctor_name.focus();
+  else if(!validateName(gender.value, 'gender_error'))
+    gender.focus();
+  else if(!validateName(username.value, 'username_error'))
+    username.focus();
+  else if(!validateName(password.value, 'password_error'))
+    password.focus();
   else if(!validateAddress(doctor_address.value, 'doctor_address_error'))
     doctor_address.focus();
   else {
@@ -131,7 +142,7 @@ function addCustomer() {
   		if(xhttp.readyState = 4 && xhttp.status == 200)
   			document.getElementById("customer_acknowledgement").innerHTML = xhttp.responseText;
   	};
-  	xhttp.open("GET", "php/add_new_customer.php?name=" + customer_name.value + "&contact_number=" + contact_number.value + "&address=" + customer_address.value + "&doctor_name=" + doctor_name.value + "&doctor_address=" + doctor_address.value, true);
+  	xhttp.open("GET", "php/add_new_customer.php?name=" + customer_name.value + "&contact_number=" + contact_number.value + "&address=" + customer_address.value + "&doctor_name=" + doctor_name.value + "&doctor_address=" + doctor_address.value,"&gender" + gender, "&username" + username, "&email" + email, "&password" + password, true);
   	xhttp.send();
   }
   return false;
