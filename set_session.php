@@ -16,6 +16,7 @@ if(isset($_POST['btn_login'])){
       if($row)  {
         $_SESSION['ad_username'] = $row['LNAME'] .' '. $row['OTHERNAME'];
         $_SESSION['ad_id'] = $row['ID'];
+        $_SESSION['ad_level'] = $row['ADMIN_TYPE'];
         header('Location: home.php');
       }else {
         header('Location: index.php');

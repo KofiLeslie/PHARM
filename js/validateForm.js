@@ -142,7 +142,7 @@ function addCustomer() {
   		if(xhttp.readyState = 4 && xhttp.status == 200)
   			document.getElementById("customer_acknowledgement").innerHTML = xhttp.responseText;
   	};
-  	xhttp.open("GET", "php/add_new_customer.php?name=" + customer_name.value + "&contact_number=" + contact_number.value + "&address=" + customer_address.value + "&doctor_name=" + doctor_name.value + "&doctor_address=" + doctor_address.value,"&gender" + gender, "&username" + username, "&email" + email, "&password" + password, true);
+  	xhttp.open("GET", "php/add_new_customer.php?name=" + customer_name.value + "&contact_number=" + contact_number.value + "&address=" + customer_address.value + "&doctor_name=" + doctor_name.value + "&doctor_address=" + doctor_address.value,"&gender=" + gender.value, "&username=" + username.value, "&email=" + email.value, "&password=" + password.value, true);
   	xhttp.send();
   }
   return false;

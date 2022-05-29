@@ -22,7 +22,13 @@ if (empty($_SESSION['ad_id'])) {
   </head>
   <body>
     <!-- including side navigations -->
-    <?php include("sections/sidenav.html"); ?>
+    <?php 
+    if ($_SESSION['ad_level'] == 1) {
+      include "sections/sidenav.html";
+    } else if ($_SESSION['ad_level'] == 2) {
+      include "sections/pharmacist_nav.html";
+    }
+    ?>
     <div class="container-fluid">
       <div class="container">
         <!-- header section -->

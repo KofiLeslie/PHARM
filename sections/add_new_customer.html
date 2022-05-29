@@ -3,8 +3,7 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="customer_name">Customer Name :</label>
-    <input type="text" class="form-control" placeholder="Name" id="customer_name" onkeyup="validateName(this.value, 'name_error');">
-    <code class="text-danger small font-weight-bold float-right" id="name_error" style="display: none;"></code>
+    <input type="text" class="form-control form1" name="name" placeholder="Name" id="customer_name">
   </div>
 </div>
 
@@ -12,8 +11,7 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="customer_contact_number">Contact Number :</label>
-    <input type="number" class="form-control" placeholder="Contact Number" id="customer_contact_number" onblur="validateContactNumber(this.value, 'contact_number_error');">
-    <code class="text-danger small font-weight-bold float-right" id="contact_number_error" style="display: none;"></code>
+    <input type="number" class="form-control form1" name="contact_number" placeholder="Contact Number" id="customer_contact_number" >
   </div>
 </div>
 
@@ -21,8 +19,7 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="customer_address">Address :</label>
-    <textarea class="form-control" placeholder="Address" id="customer_address" onblur="validateAddress(this.value, 'address_error');"></textarea>
-    <code class="text-danger small font-weight-bold float-right" id="address_error" style="display: none;"></code>
+    <textarea class="form-control form1" name="address" placeholder="Address" id="customer_address" ></textarea>
   </div>
 </div>
 
@@ -30,12 +27,11 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="gender">Gender :</label>
-    <select class="form-control" name="gender" id="gender">
+    <select class="form-control form1" name="gender" id="gender">
       <option value="" selected disabled>---SELECT GENDER---</option>
       <option value="Male">MALE</option>
       <option value="Female">FEMALE</option>
     </select>
-    <code class="text-danger small font-weight-bold float-right" id="gender_error" style="display: none;"></code>
   </div>
 </div>
 
@@ -43,8 +39,7 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="username">Username :</label>
-   <input class="form-control" type="text" name="username" id="username" placeholder="USERNAME..." onkeyup="validateName(this.value, 'name_error');">
-    <code class="text-danger small font-weight-bold float-right" id="username_error" style="display: none;"></code>
+   <input class="form-control form1" type="text" name="username" id="username" placeholder="USERNAME..." >
   </div>
 </div>
 
@@ -52,8 +47,8 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="email">E-MAIL :</label>
-   <input class="form-control" type="email" name="email" id="email" placeholder="eg abcd@efgh.com" onkeyup="validateName(this.value, 'name_error');">
-    <code class="text-danger small font-weight-bold float-right" id="" style="display: none;"></code>
+   <input class="form-control form1" type="email" name="email" id="email" placeholder="eg abcd@efgh.com" >
+    
   </div>
 </div>
 
@@ -61,8 +56,8 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="password">PASSWORD :</label>
-   <input class="form-control" type="password" name="password" id="password" placeholder="eg abcd@efgh.com" onkeyup="validateName(this.value, 'name_error');">
-    <code class="text-danger small font-weight-bold float-right" id="" style="display: none;"></code>
+   <input class="form-control form1" type="password" name="password" id="password" placeholder="eg abcd@efgh.com" >
+    
   </div>
 </div>
 
@@ -70,8 +65,8 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="customer_doctors_name">Doctor's Name :</label>
-    <input type="text" class="form-control" placeholder="Doctor's Name" id="customer_doctors_name" onkeyup="validateName(this.value, 'doctor_name_error');">
-    <code class="text-danger small font-weight-bold float-right" id="doctor_name_error" style="display: none;"></code>
+    <input type="text" class="form-control form1" name="doctor_name" placeholder="Doctor's Name" id="customer_doctors_name" >
+    
   </div>
 </div>
 
@@ -79,8 +74,8 @@
 <div class="row col col-md-12">
   <div class="col col-md-12 form-group">
     <label class="font-weight-bold" for="customer_doctors_address">Doctor's Address :</label>
-    <textarea class="form-control" placeholder="Doctor's Address" id="customer_doctors_address" onblur="validateAddress(this.value, 'doctor_address_error');"></textarea>
-    <code class="text-danger small font-weight-bold float-right" id="doctor_address_error" style="display: none;"></code>
+    <textarea class="form-control form1" name="doctor_address" placeholder="Doctor's Address" id="customer_doctors_address" ></textarea>
+    
   </div>
 </div>
 <!-- customer details content end -->
@@ -94,12 +89,12 @@
 <div class="row col col-md-12">
   &emsp;
   <div class="form-group m-auto">
-    <button class="btn btn-primary" onclick="addCustomer();">ADD</button>
+    <button class="btn btn-primary"  onclick="addCustomer();">ADD</button>
   </div>
   <!--
   &emsp;
   <div class="form-group">
-    <button class="btn btn-success form-control">Save and Add Another</button>
+    <button class="btn btn-success form-control form1">Save and Add Another</button>
   </div>
   -->
 </div>

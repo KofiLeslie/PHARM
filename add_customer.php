@@ -16,7 +16,7 @@ if (empty($_SESSION['ad_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/sidenav.css">
     <link rel="stylesheet" href="css/home.css">
-    <script src="js/validateForm.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/restrict.js"></script>
   </head>
   <body>
@@ -30,6 +30,7 @@ if (empty($_SESSION['ad_id'])) {
           createHeader('handshake', 'Add Customer', 'Add New Customer');
           // header section end
         ?>
+        <form name="myform" id="myform" method="post" action="php/add_new_customer.php" data-toggle="validator" role="form" enctype="multipart/form-data" autocomplete="off">
         <div class="row">
           <div class="row col col-md-6">
             <?php
@@ -38,6 +39,7 @@ if (empty($_SESSION['ad_id'])) {
             ?>
           </div>
         </div>
+        </form>
         <hr style="border-top: 2px solid #ff5252;">
       </div>
     </div>

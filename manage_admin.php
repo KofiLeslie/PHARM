@@ -7,28 +7,22 @@ if (empty($_SESSION['ad_id'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Manage Medicines</title>
+    <title>Manage Admin</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<script src="bootstrap/js/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/sidenav.css">
     <link rel="stylesheet" href="css/home.css">
-    <script src="js/manage_medicine.js"></script>
+    <script src="js/manage_admin.js"></script>
     <script src="js/validateForm.js"></script>
     <script src="js/restrict.js"></script>
   </head>
-  <body>
+  <body style="max-height: 100%;">
     <!-- including side navigations -->
-    <?php 
-    if ($_SESSION['ad_level'] == 1) {
-      include "sections/sidenav.html";
-    } else if ($_SESSION['ad_level'] == 2) {
-      include "sections/pharmacist_nav.html";
-    }
-    ?>
+    <?php include("sections/sidenav.html"); ?>
 
     <div class="container-fluid">
       <div class="container">
@@ -36,7 +30,7 @@ if (empty($_SESSION['ad_id'])) {
         <!-- header section -->
         <?php
           require "php/header.php";
-          createHeader('shopping-bag', 'Manage Medicines', 'Manage Existing Medicine');
+          createHeader('handshake', 'Manage Admin', 'Manage Existing Admin');
         ?>
         <!-- header section end -->
 
@@ -45,9 +39,7 @@ if (empty($_SESSION['ad_id'])) {
 
           <div class="col-md-12 form-group form-inline">
             <label class="font-weight-bold" for="">Search :&emsp;</label>
-            <input type="text" class="form-control" id="by_name" placeholder="By Medicine Name" onkeyup="searchMedicine(this.value, 'name');">
-            &emsp;<input type="text" class="form-control" id="by_generic_name" placeholder="By Generic Name" onkeyup="searchMedicine(this.value, 'generic_name');">
-            &emsp;<input type="text" class="form-control" id="by_suppliers_name" placeholder="By Supplier Name" onkeyup="searchMedicine(this.value, 'suppliers_name');">
+            <input type="text" class="form-control" id="" placeholder="Search Admin" onkeyup="searchAdmin(this.value);">
           </div>
 
           <div class="col col-md-12">
@@ -59,18 +51,20 @@ if (empty($_SESSION['ad_id'])) {
             	<table class="table table-bordered table-striped table-hover">
             		<thead>
             			<tr>
-            				<th style="width: 5%;">SL.</th>
-            				<th style="width: 20%;">Medicine Name</th>
-                    <th style="width: 10%;">Packing</th>
-                    <th style="width: 30%;">Generic Name</th>
-            				<th style="width: 20%;">Supplier</th>
+            				<th style="width: 2%;">#</th>
+            				<th style="width: 13%;">Last Name</th>
+            				<th style="width: 13%;">Other Name(s)</th>
+                    <th style="width: 13%;">Contact Number</th>
+                    <th style="width: 17%;">Address</th>
+                    <th style="width: 13%;">Pharmacy Name</th>
+                    <th style="width: 17%;">Email</th>
                     <th style="width: 15%;">Action</th>
             			</tr>
             		</thead>
-            		<tbody id="medicines_div">
+            		<tbody id="customers_div">
                   <?php
-                    require 'php/manage_medicine.php';
-                    showMedicines(0);
+                    require 'php/manage_admin.php';
+                    showAdmin(intval($_SESSION['ad_id']));
                   ?>
             		</tbody>
             	</table>
