@@ -38,7 +38,7 @@ if ($_SESSION['ad_level'] == 1) {
 
     <!-- form content -->
     <div class="row">
-      <div class="row col col-md-6">
+      <div class="row col col-md-12">
         <?php
         // form content
         require "sections/add_new_medicine.html";
