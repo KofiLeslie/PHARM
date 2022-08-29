@@ -73,24 +73,34 @@
   }
 
   function printInvoice($invoice_number) {
+    // var_dump($invoice_number);exit;
     require "db_connection.php";
     if($con) {
-      $query = "SELECT * FROM sales INNER JOIN customers ON sales.CUSTOMER_ID = customers.ID WHERE INVOICE_NUMBER = $invoice_number";
+      // $query = "SELECT * FROM sales INNER JOIN customers ON sales.CUSTOMER_ID = customers.ID WHERE INVOICE_NUMBER = $invoice_number";
+      // $result = mysqli_query($con, $query);
+      // $row = mysqli_fetch_array($result);
+      // $customer_name = $row['NAME'];
+      // $address = $row['ADDRESS'];
+      // $contact_number = $row['CONTACT_NUMBER'];
+      // $doctor_name = $row['DOCTOR_NAME'];
+      // $doctor_address = $row['DOCTOR_ADDRESS'];
+
+      $query = "SELECT * FROM invoices WHERE INVOICE_ID = $invoice_number";
+      $result = mysqli_query($con, $query);
+      $row_inv = mysqli_fetch_array($result);
+      $invoice_date = $row_inv['INVOICE_DATE'];
+      $total_amount = $row_inv['TOTAL_AMOUNT'];
+      $total_discount = $row_inv['TOTAL_DISCOUNT'];
+      $net_total = $row_inv['NET_TOTAL'];
+
+      $query = "SELECT * FROM customers WHERE ID = {$row_inv['CUSTOMER_ID']}";
       $result = mysqli_query($con, $query);
       $row = mysqli_fetch_array($result);
       $customer_name = $row['NAME'];
       $address = $row['ADDRESS'];
       $contact_number = $row['CONTACT_NUMBER'];
-      $doctor_name = $row['DOCTOR_NAME'];
-      $doctor_address = $row['DOCTOR_ADDRESS'];
-
-      $query = "SELECT * FROM invoices WHERE INVOICE_NUMBER = $invoice_number";
-      $result = mysqli_query($con, $query);
-      $row = mysqli_fetch_array($result);
-      $invoice_date = $row['INVOICE_DATE'];
-      $total_amount = $row['TOTAL_AMOUNT'];
-      $total_discount = $row['TOTAL_DISCOUNT'];
-      $net_total = $row['NET_TOTAL'];
+      // $doctor_name = $row['DOCTOR_NAME'];
+      // $doctor_address = $row['DOCTOR_ADDRESS'];
     }
 
     ?>
@@ -116,8 +126,8 @@
         <span class="font-weight-bold">Name : </span><?php echo $customer_name; ?><br>
         <span class="font-weight-bold">Address : </span><?php echo $address; ?><br>
         <span class="font-weight-bold">Contact Number : </span><?php echo $contact_number; ?><br>
-        <span class="font-weight-bold">Doctor's Name : </span><?php echo $doctor_name; ?><br>
-        <span class="font-weight-bold">Doctor's Address : </span><?php echo $doctor_address; ?><br>
+        <!-- <span class="font-weight-bold">Doctor's Name : </span><?php //echo $doctor_name; ?><br>
+        <span class="font-weight-bold">Doctor's Address : </span><?php //echo $doctor_address; ?><br> -->
       </div>
       <div class="col-md-3"></div>
 

@@ -149,13 +149,13 @@ function getChange(paid_amt) {
   document.getElementById("change_amt").value = paid_amt - net_total;
 }
 
-function isCustomer(name, contact_number) {
+function isCustomer(name, contact_number, contact_address='') {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(xhttp.readyState = 4 && xhttp.status == 200)
       xhttp.responseText;
   };
-  xhttp.open("GET", "php/add_new_invoice.php?action=is_customer&name=" + name + "&contact_number=" + contact_number, false);
+  xhttp.open("GET", "php/add_new_invoice.php?action=is_customer&name=" + name + "&contact_number=" + contact_number+ "&contact_address=" + contact_address, false);
   xhttp.send();
   //alert(xhttp.responseText);
   return xhttp.responseText;
@@ -189,20 +189,30 @@ function addInvoice() {
   // save invoice
   var customers_name = document.getElementById('customers_name');
   var customers_contact_number = document.getElementById('customers_contact_number');
+  var customers_address = document.getElementById('customers_address');
   var invoice_number = document.getElementById('invoice_number');
   var payment_type = document.getElementById('payment_type');
   var invoice_date = document.getElementById('invoice_date');
-  //alert(invoice_number.value);
-
-  if(!notNull(customers_name.value, "customer_name_error"))
+  const pattern = /^[0-9]\d*$/;
+  // console.log(pattern.test(customers_contact_number));
+  if(!pattern.test(customers_contact_number.value)){
+    document.getElementById("customer_contact_error").style.display = "block";
+    document.getElementById("customer_contact_error").innerHTML = "Non-Numerrcal values entered!!";
+    return;
+  }else if (customers_contact_number.value.length > 10) {
+    document.getElementById("customer_contact_error").style.display = "block";
+    document.getElementById("customer_contact_error").innerHTML = "Contact is longer than 10 values";
+    return;
+  }
+   if(!notNull(customers_name.value, "customer_name_error"))
     customers_name.focus();
-  else if(isCustomer(customers_name.value, customers_contact_number.value) == "false") {
+  else if(isCustomer(customers_name.value, customers_contact_number.value, customers_address.value) == "false") {
     document.getElementById("customer_name_error").style.display = "block";
     document.getElementById("customer_name_error").innerHTML = "Customer doesn't exists!";
     customers_name.focus();
   }
   else if(isInvoiceExist(invoice_number.value) == "true")
-    document.getElementById("invoice_acknowledgement").innerHTML = "Alreay saved Invoice!";
+    document.getElementById("invoice_acknowledgement").innerHTML = "Already saved Invoice!";
   else if(!checkDate(invoice_date.value, 'date_error'))
     invoice_date.focus();
   else {

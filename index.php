@@ -8,33 +8,38 @@
 		<script src="bootstrap/js/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="images/prof.jpg" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/index.js"></script>
+    <!-- <script src="js/index.js"></script> -->
   </head>
   <body>
     <div class="container">
       <div class="card m-auto p-2">
         <div class="card-body">
-          <form name="login-form" class="login-form" action="set_session.php" method="post">
+          <form name="login-form" class="login-form" action="" method="post">
             <div class="logo">
         			<img src="images/prof.jpg" class="profile"/>
         			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
         		</div> <!-- logo class -->
+            <!-- Status bar -->
+            <div class="alert alert-danger alert-dismissible fade show" id="alertbar" role="alert">
+              <strong id="errormsg">Life</strong>
+            </div>
+            <!-- End -->
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user text-white"></i></span>
               </div>
-              <input name="username" type="text" class="form-control" placeholder="username" onkeyup="validate();" required>
+              <input name="username" id="username" type="text" class="form-control" placeholder="username" required>
             </div> <!--input-group class -->
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key text-white"></i></span>
               </div>
-              <input name="password" type="password" class="form-control" placeholder="password" onkeyup="validate();" required>
+              <input name="password" id="password" type="password" class="form-control" placeholder="password" required>
             </div> <!-- input-group class -->
             <div class="form-group">
-              <button class="btn btn-default btn-block btn-custom" name="btn_login">Login</button>
+              <button type="button" class="btn btn-default btn-block btn-custom" name="btn_login" onclick="login()">Login</button>
             </div>
           </form><!-- form close -->
         </div> <!-- cord-body class -->
@@ -45,5 +50,7 @@
         </div> <!-- cord-footer class -->
       </div> <!-- card class -->
     </div> <!-- container class -->
+    <script src="./js/script.js"></script>
+    <!-- <script src="./js/sweet-alert.min.js"></script> -->
   </body>
 </html>
