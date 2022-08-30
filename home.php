@@ -15,7 +15,7 @@ if ($_SESSION['ad_level'] == 1) {
     createHeader('home', 'Dashboard', 'Home');
     ?>
     <!-- Status Message -->
-
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <?php if (isset($_SESSION['status'])) { ?>
       <div class="alert <?php echo strtolower($_SESSION['status']); ?>">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>

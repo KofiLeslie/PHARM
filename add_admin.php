@@ -14,7 +14,7 @@ titl_name('Add New Admin');
         ?>
          <form name="myform" id="myform" method="post" action="php/add_new_admin.php" data-toggle="validator" role="form" enctype="multipart/form-data" autocomplete="off">
         <div class="row">
-          <div class="row col col-md-6">
+          <div class="row col col-md-12">
             <?php
               // form content
               require "sections/add_new_admin.html";

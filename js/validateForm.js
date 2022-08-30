@@ -148,37 +148,36 @@ function addCustomer() {
   return false;
 }
 
-function addAdmin() {
-  document.getElementById("admin_acknowledgement").innerHTML = "";
-  var admin_firsts_name = document.getElementById("admin_firsts_name");
-  var admin_other_name = document.getElementById("admin_other_name");
-  var admin_contact_number = document.getElementById("admin_contact_number");
-  var admin_address = document.getElementById("admin_address");
-  var admin_username = document.getElementById("admin_username");
-  var doctor_address = document.getElementById("customer_doctors_address");
-  if(!validateName(admin_firsts_name.value, "first_name_error"))
-    admin_firsts_name.focus();
-  else if(!validateContactNumber(admin_contact_number.value, "contact_number_error"))
-    admin_contact_number.focus();
-  else if(!validateAddress(admin_address.value, "address_error"))
-    admin_address.focus();
-  else if(!validateName(admin_username.value, 'username_error'))
-    admin_username.focus();
-  else if(!validateName(admin_other_name.value, 'other_name_error'))
-  admin_other_name.focus();
-  else if(!validateAddress(doctor_address.value, 'doctor_address_error'))
-    doctor_address.focus();
-  else {
-    var xhttp = new XMLHttpRequest();
-  	xhttp.onreadystatechange = function() {
-  		if(xhttp.readyState = 4 && xhttp.status == 200)
-  			document.getElementById("admin_acknowledgement").innerHTML = xhttp.responseText;
-  	};
-  	xhttp.open("GET", "php/add_new_customer.php?name=" + admin_firsts_name.value + "&admin_contact_number=" + admin_contact_number.value + "&address=" + admin_address.value + "&admin_username=" + admin_username.value + "&doctor_address=" + doctor_address.value, true);
-  	xhttp.send();
-  }
-  return false;
-}
+// function addAdmin() {
+//   console.log("banku");
+//   document.getElementById("admin_acknowledgement").innerHTML = "";
+//   var admin_firsts_name = document.getElementById("admin_firsts_name");
+//   var admin_other_name = document.getElementById("admin_other_name");
+//   var admin_contact_number = document.getElementById("admin_contact_number");
+//   var admin_address = document.getElementById("admin_address");
+//   var admin_username = document.getElementById("admin_username");
+//   if(!validateName(admin_firsts_name.value, "first_name_error"))
+//     admin_firsts_name.focus();
+//   else if(!validateContactNumber(admin_contact_number.value, "contact_number_error"))
+//     admin_contact_number.focus();
+//   else if(!validateAddress(admin_address.value, "address_error"))
+//     admin_address.focus();
+//   else if(!validateName(admin_username.value, 'username_error'))
+//     admin_username.focus();
+//   else if(!validateName(admin_other_name.value, 'other_name_error'))
+//   admin_other_name.focus();
+//   else {
+    
+//     var xhttp = new XMLHttpRequest();
+//   	xhttp.onreadystatechange = function() {
+//   		if(xhttp.readyState = 4 && xhttp.status == 200)
+//   			document.getElementById("admin_acknowledgement").innerHTML = xhttp.responseText;
+//   	};
+//   	xhttp.open("GET", "php/add_new_admin.php?name=" + admin_firsts_name.value + "&admin_contact_number=" + admin_contact_number.value + "&address=" + admin_address.value + "&admin_username=" + admin_username.value , true);
+//   	xhttp.send();
+//   }
+//   return false;
+// }
 
 function addSupplier() {
   document.getElementById("supplier_acknowledgement").innerHTML = "";
@@ -203,25 +202,58 @@ function addSupplier() {
   }
 }
 
+// Full Date (22 August, 2022)
+$( function() {
+  $( ".fulldate" ).datepicker();
+} );
+
+// Month and Year Only (08/2022)
+$(function() {
+  $('.monthYear').datepicker( {
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      dateFormat: 'mm/y',
+      onClose: function(dateText, inst) { 
+          var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+          var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+          $(this).datepicker('setDate', new Date(year, month, 1));
+      }
+  });
+});
+
 function addMedicine() {
   document.getElementById("medicine_acknowledgement").innerHTML = "";
   var name = document.getElementById("medicine_name");
   var packing = document.getElementById("packing");
   var generic_name = document.getElementById("generic_name");
   var suppliers_name = document.getElementById("suppliers_name");
+  var quantity = document.getElementById("quantity");
+  var price = document.getElementById("price");
+  var prodate = document.getElementById("prodate");
+  var expdate = document.getElementById("expdate");
+
   if(!notNull(name.value, "medicine_name_error"))
     name.focus();
   else if(!notNull(packing.value, "pack_error"))
     packing.focus();
   else if(!notNull(generic_name.value, "generic_name_error"))
     generic_name.focus();
+  else if(!notNull(quantity.value, "quantity_error"))
+    quantity.focus();
+  else if(!notNull(price.value, "price_error"))
+    price.focus();
+  else if(!notNull(prodate.value, "prodate_error"))
+    prodate.focus();
+  else if(!notNull(expdate.value, "expdate_error"))
+    expdate.focus();
   else {
     var xhttp = new XMLHttpRequest();
   	xhttp.onreadystatechange = function() {
   		if(xhttp.readyState = 4 && xhttp.status == 200)
   			document.getElementById("medicine_acknowledgement").innerHTML = xhttp.responseText;
   	};
-  	xhttp.open("GET", "php/add_new_medicine.php?name=" + name.value + "&packing=" + packing.value + "&generic_name=" + generic_name.value + "&suppliers_name=" + suppliers_name.value, true);
+  	xhttp.open("GET", "php/add_new_medicine.php?name=" + name.value + "&packing=" + packing.value + "&generic_name=" + generic_name.value + "&suppliers_name=" + suppliers_name.value + "&quantity=" + quantity.value + "&price=" + price.value + "&prodate=" + prodate.value + "&expdate=" + expdate.value, true);
   	xhttp.send();
   }
 }

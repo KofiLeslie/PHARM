@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 29, 2022 at 04:31 PM
+-- Generation Time: Aug 30, 2022 at 02:42 PM
 -- Server version: 5.7.33
 -- PHP Version: 8.0.22
 
@@ -52,7 +52,9 @@ CREATE TABLE `admin_credentials` (
 INSERT INTO `admin_credentials` (`ID`, `LNAME`, `OTHERNAME`, `USERNAME`, `PASSWORD`, `IS_LOGGED_IN`, `PHARMACY_NAME`, `ADDRESS`, `EMAIL`, `CONTACT_NUMBER`, `USERID`, `GENDER`, `IMAGE`, `DATE`, `ADMIN_TYPE`) VALUES
 (1, 'Brobbs', 'Leslie', 'admin', 'admin123', 'true', 'FYNN PHARMACEUTICALS', 'DOME', 'abc@me.com', '020121231232', NULL, NULL, NULL, NULL, 1),
 (2, 'Akalili', 'Bless', 'albert', 'alaska', 'true', 'Poly', 'Pokuase Lodge', 'giftyasiedu5@gmail.c', '78464679756579', 62216, 'Male', NULL, NULL, 2),
-(3, 'Achepelago', 'Nasir', 'admin@admin.com', 'admin123', 'true', 'Pokaas', 'Near Ampomah Last Stop, Oyarifa\r\nGM-152-', 'jharrison1519@gmail.', '843954354343', 69471, 'Female', NULL, NULL, 2);
+(3, 'Achepelago', 'Nasir', 'admin@admin.com', 'admin123', 'true', 'Pokaas', 'Near Ampomah Last Stop, Oyarifa\r\nGM-152-', 'jharrison1519@gmail.', '843954354343', 69471, 'Female', NULL, NULL, 2),
+(4, '', '', '', '', NULL, '', '', '', '', 4437, '', NULL, NULL, 0),
+(5, 'Les', 'Lie', 'space', 'space123', NULL, 'Pharm', 'Space 123 Admin', 'mail@mail.com', '39494940', 33910619, '', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +155,11 @@ INSERT INTO `medicines` (`ID`, `NAME`, `PACKING`, `GENERIC_NAME`, `SUPPLIER_NAME
 (1, 'Nicip Plus', '10TAB', 'Paracetamole', 'BDPL PHARMA'),
 (2, 'Crosin', '10tab', 'Hdsgvkvajkcbja', 'Kiran Pharma'),
 (4, 'Dolo 650', '15tab', 'paracetamole', 'BDPL PHARMA'),
-(5, 'Gelusil', '10tab', 'mint fla', 'Desai Pharma');
+(5, 'Gelusil', '10tab', 'mint fla', 'Desai Pharma'),
+(6, 'Paracetamol', '20 TAB', 'PCT', 'Ansah Emmanuel'),
+(7, 'Chloroquine', '20 TAB', 'PCT', 'Ansah Emmanuel'),
+(8, 'Chloroquines', '20 TAB', 'PCT', 'Ansah Emmanuel'),
+(9, 'Chloroquinese', '20 TAB', 'PCT', 'Ansah Emmanuel');
 
 -- --------------------------------------------------------
 
@@ -168,18 +174,20 @@ CREATE TABLE `medicines_stock` (
   `EXPIRY_DATE` varchar(10) COLLATE utf16_bin NOT NULL,
   `QUANTITY` int(11) NOT NULL,
   `MRP` double NOT NULL,
-  `RATE` double NOT NULL
+  `RATE` double NOT NULL,
+  `INVOICE_NUMBER` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `medicines_stock`
 --
 
-INSERT INTO `medicines_stock` (`ID`, `NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `RATE`) VALUES
-(1, 'Crosin', 'CROS12', '12/34', 153, 2626, 26),
-(2, 'Gelusil', 'G327', '12/42', 84, 15, 12),
-(3, 'Dolo 650', 'DOLO327', '01/23', 6, 30, 24),
-(4, 'Nicip Plus', 'NI325', '05/22', 3, 32.65, 28);
+INSERT INTO `medicines_stock` (`ID`, `NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `RATE`, `INVOICE_NUMBER`) VALUES
+(1, 'Crosin', 'CROS12', '12/34', 153, 2626, 26, NULL),
+(2, 'Gelusil', 'G327', '12/42', 84, 15, 12, NULL),
+(3, 'Dolo 650', 'DOLO327', '01/23', 6, 30, 24, NULL),
+(4, 'Nicip Plus', 'NI325', '05/22', 3, 32.65, 28, NULL),
+(5, 'Chloroquinese', 'CHL384', '08/2032', 3222, 3, 0, 604532266);
 
 -- --------------------------------------------------------
 
@@ -282,6 +290,13 @@ CREATE TABLE `suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin ROW_FORMAT=DYNAMIC;
 
 --
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`ID`, `NAME`, `EMAIL`, `CONTACT_NUMBER`, `ADDRESS`) VALUES
+(1, 'Ansah Emmanuel', 'ansah@mail.com', '0202203343', 'Pokuase');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -356,7 +371,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `admin_credentials`
 --
 ALTER TABLE `admin_credentials`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -374,13 +389,13 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `medicines_stock`
 --
 ALTER TABLE `medicines_stock`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -404,7 +419,7 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

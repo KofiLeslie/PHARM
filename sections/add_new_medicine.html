@@ -1,3 +1,9 @@
+<style type="text/css">
+    .ui-datepicker-calendar {
+        display: none;
+    }
+</style>
+
 <div class="row col col-md-12">
     <div class="col col-md-6 form-group">
         <label class="font-weight-bold" for="medicine_name">Medicine Name :</label>
@@ -27,55 +33,30 @@
 </div>
 <div class="row col col-md-12">
     <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="generic_name">Quantity :</label>
-        <input type="text" class="form-control" id="generic_name" placeholder="" onblur="notNull(this.value, 'generic_name_error');">
-        <code class="text-danger small font-weight-bold float-right" id="generic_name_error" style="display: none;"></code>
+        <label class="font-weight-bold" for="quantity">Quantity :</label>
+        <input type="number" class="form-control" id="quantity" placeholder="" onblur="notNull(this.value, 'quantity_error');">
+        <code class="text-danger small font-weight-bold float-right" id="quantity_error" style="display: none;"></code>
     </div>
     <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="suppliers_name">Cost Price :</label>
-        <input id="suppliers_name" type="text" class="form-control" id="suppliers_name" placeholder="" name="suppliers_name" onkeyup="showSuggestions(this.value, 'supplier');">
-        <code class="text-danger small font-weight-bold float-right" id="supplier_name_error" style="display: none;"></code>
+        <label class="font-weight-bold" for="price">Cost Price :</label>
+        <input id="price" type="number" class="form-control" id="price" placeholder="" name="price" onblur="notNull(this.value, 'price_error');">
+        <code class="text-danger small font-weight-bold float-right" id="price_error" style="display: none;"></code>
         <div id="supplier_suggestions" class="list-group position-fixed" style="z-index: 1; width: 35.80%; overflow: auto; max-height: 200px;"></div>
     </div>
 </div>
 <div class="row col col-md-12">
     <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="generic_name">Production Date :</label>
-        <input type="text" class="form-control" id="generic_name" placeholder="" onblur="notNull(this.value, 'generic_name_error');">
-        <code class="text-danger small font-weight-bold float-right" id="generic_name_error" style="display: none;"></code>
+        <label class="font-weight-bold" for="prodate">Production Date :</label>
+        <input type="text" class="form-control monthYear" id="prodate" placeholder="eg 04/1932" onblur="notNull(this.value, 'prodate_error');">
+        <code class="text-danger small font-weight-bold float-right" id="prodate_error" style="display: none;"></code>
     </div>
     <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="suppliers_name">Expiry Date :</label>
-        <input id="suppliers_name" type="text" class="form-control" id="suppliers_name" placeholder="" name="suppliers_name" onkeyup="showSuggestions(this.value, 'supplier');">
-        <code class="text-danger small font-weight-bold float-right" id="supplier_name_error" style="display: none;"></code>
+        <label class="font-weight-bold" for="expdate">Expiry Date :</label>
+        <input id="expdate" type="text" class="form-control monthYear" id="expdate" placeholder="eg 04/1934" name="expdate" onblur="notNull(this.value, 'expdate_error');">
+        <code class="text-danger small font-weight-bold float-right" id="expdate_error" style="display: none;"></code>
         <div id="supplier_suggestions" class="list-group position-fixed" style="z-index: 1; width: 35.80%; overflow: auto; max-height: 200px;"></div>
     </div>
 </div>
-<div class="row col col-md-12">
-    <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="generic_name">Interest Rate :</label>
-        <input type="text" class="form-control" id="generic_name" placeholder="" onblur="notNull(this.value, 'generic_name_error');">
-        <code class="text-danger small font-weight-bold float-right" id="generic_name_error" style="display: none;"></code>
-    </div>
-    <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="suppliers_name">Expected Sale :</label>
-        <input id="suppliers_name" type="text" class="form-control" id="" placeholder="" name="suppliers_name" onkeyup="showSuggestions(this.value, 'supplier');">
-        <code class="text-danger small font-weight-bold float-right" id="supplier_name_error" style="display: none;"></code>
-        <div id="supplier_suggestions" class="list-group position-fixed" style="z-index: 1; width: 35.80%; overflow: auto; max-height: 200px;"></div>
-    </div>
-</div>
-<div class="row col col-md-12">
-    <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="generic_name">Manufacturer :</label>
-        <input type="text" class="form-control" id="generic_name" placeholder="" onblur="notNull(this.value, 'generic_name_error');">
-        <code class="text-danger small font-weight-bold float-right" id="generic_name_error" style="display: none;"></code>
-    </div>
-    <div class="col col-md-6 form-group">
-        <label class="font-weight-bold" for="suppliers_name">Dosage :</label>
-        <textarea id="suppliers_name" class="form-control" id="" placeholder="" name="suppliers_name" onkeyup="showSuggestions(this.value, 'supplier');"></textarea>
-        <code class="text-danger small font-weight-bold float-right" id="supplier_name_error" style="display: none;"></code>
-        <div id="supplier_suggestions" class="list-group position-fixed" style="z-index: 1; width: 35.80%; overflow: auto; max-height: 200px;"></div>
-    </div>
 </div>
 
 
@@ -92,19 +73,13 @@
     <hr class="col-md-12 float-left" style="padding: 0px; width: 95%; border-top: 2px solid  #02b6ff;">
 </div>
 
-<!-- new user button -->
+<!-- new medicine button -->
 <div class="row col col-md-12">
     &emsp;
     <div class="form-group m-auto">
         <button class="btn btn-primary form-control" onclick="addMedicine();">ADD</button>
     </div>
-    <!--
-  &emsp;
-  <div class="form-group">
-    <button class="btn btn-success form-control">Save and Add Another</button>
-  </div>
--->
+   
 </div>
-<!-- customer details content end -->
 <!-- result message -->
 <div id="medicine_acknowledgement" class="col-md-12 h5 text-success font-weight-bold text-center" style="font-family: sans-serif;"></div>

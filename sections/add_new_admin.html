@@ -1,84 +1,50 @@
 <!-- customer details content -->
 <!-- customer name control -->
 <div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="last_name">Last Name :</label>
     <input type="text" class="form-control form1" name="last_name" placeholder="Last Name" id="last_name">
   </div>
-</div>
-<!-- customer name control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="other_name">Other Name(s) :</label>
     <input type="text" class="form-control form1" name="other_name" placeholder="Other Name(s)" id="other_name">
   </div>
-</div>
 
-<!-- customer contact number control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="contact_number">Contact Number :</label>
     <input type="number" class="form-control form1" name="contact_number" placeholder="Contact Number" id="contact_number" >
   </div>
-</div>
 
-<!-- customer address control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="address">Address :</label>
     <textarea class="form-control form1" name="address" placeholder="Address" id="address" ></textarea>
   </div>
-</div>
 
-<!-- customer gender control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
-    <label class="font-weight-bold" for="gender">Gender :</label>
-    <select class="form-control form1" name="gender" id="gender">
-      <option value="" selected disabled>---SELECT GENDER---</option>
-      <option value="Male">MALE</option>
-      <option value="Female">FEMALE</option>
-    </select>
-  </div>
-</div>
-
-<!-- customer username control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="username">Username :</label>
    <input class="form-control form1" type="text" name="username" id="username" placeholder="USERNAME..." >
   </div>
-</div>
 
-<!-- customer email control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="email">E-MAIL :</label>
    <input class="form-control form1" type="email" name="email" id="email" placeholder="eg abcd@efgh.com" >
     
   </div>
-</div>
 
-<!-- customer email control -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="password">PASSWORD :</label>
    <input class="form-control form1" type="password" name="password" id="password" placeholder="eg abcd@efgh.com" >
     
   </div>
-</div>
 
-<!-- customes's doctor name -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="pharmacy_name">Pharmacy Name :</label>
     <input type="text" class="form-control form1" name="pharmacy_name" placeholder="Pharmacy Name" id="pharmacy_name" >
     
   </div>
-</div>
-<!-- Admin Type -->
-<div class="row col col-md-12">
-  <div class="col col-md-12 form-group">
+
+  <div class="col col-md-6 form-group">
     <label class="font-weight-bold" for="admin_type">Admin Level :</label>
     <select class="form-control form1" name="admin_type" id="admin_type">
       <option value="" selected disabled>---SELECT LEVEL---</option>
@@ -99,7 +65,10 @@
 <div class="row col col-md-12">
   &emsp;
   <div class="form-group m-auto">
-    <button class="btn btn-primary"  onclick="addAdmin();">ADD</button>
+    <!-- <button class="btn btn-primary"  onclick="addAdmin();">ADD</button> -->
+    <button class="btn btn-primary form-control" onclick="addAdmin();">ADD</button>
   </div>
  
 </div>
+<!-- result message -->
+<div id="admin_acknowledgement" class="col-md-12 h5 text-success font-weight-bold text-center" style="font-family: sans-serif;"></div>
