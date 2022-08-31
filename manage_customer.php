@@ -37,8 +37,6 @@ titl_name('Manage Customer');
                 <th style="width: 13%;">Customer Name</th>
                 <th style="width: 13%;">Contact Number</th>
                 <th style="width: 17%;">Address</th>
-                <th style="width: 13%;">Doctor's Name</th>
-                <th style="width: 17%;">Doctor's Address</th>
                 <th style="width: 15%;">Action</th>
               </tr>
             </thead>
