@@ -25,6 +25,10 @@ if ($con) {
   } else {
     $query = "INSERT INTO customers (NAME, CONTACT_NUMBER, ADDRESS, DOCTOR_NAME, DOCTOR_ADDRESS, USERID, USERNAME, EMAIL, GENDER, PASSWORD) VALUES('$name', '$contact_number', '$address', '$doctor_name', '$doctor_address', '$userid', '$username', '$email', '$gender', '$password')";
     $result = mysqli_query($con, $query);
+
+    $query_2 = "INSERT INTO users (userid,username,gender,email,password,date,roleid,isActive) VALUES ($userid, '$username', 'male', '$email','$password','$date', 0, 0)";
+    $result2 = mysqli_query($con, $query_2);
+
     if (!empty($result)) {
       $status = 'success';
       $msg = "Customer " . $name . " has been added";
