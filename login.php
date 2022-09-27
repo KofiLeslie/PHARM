@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js"></script>
     <script src="js/validateForm.js"></script>
-    <script>
+    <!-- <script>
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if(xhttp.readyState = 4 && xhttp.status == 200)
@@ -23,11 +23,11 @@
 
       //alert(xhttp.responseText);
       if(xhttp.responseText == "")
-        window.location.href = "http://localhost/PHARM/index.html";
+        window.location.href = "index.html";
       if(xhttp.responseText == "true")
-        window.location.href = "http://localhost/PHARM/home.php";
+        window.location.href = "home.php";
 
-    </script>
+    </script> -->
   </head>
   <body>
     <div class="container">

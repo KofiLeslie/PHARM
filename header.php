@@ -2,9 +2,9 @@
 function titl_name($title)
 {
     session_start();
-    if (empty($_SESSION['ad_id'])) {
-        header('Location: index.php');
-    }
+    // if (!isset($_SESSION['ad_id']) && !isset($_SESSION['cli_id'])) {
+    //     header('Location: index.php');
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

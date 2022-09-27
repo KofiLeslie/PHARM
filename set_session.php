@@ -22,10 +22,30 @@ if ($con) {
       $msg = 'Error, User not found!!';
     }
   } else {
-    $status = '400';
-    $msg = 'Error, User not found!!';
+    // login as customer
+    $query = "SELECT * FROM customers WHERE USERNAME = '$username' AND PASSWORD = '$password'";
+    $result = mysqli_query($con, $query);
+    if ($result->num_rows > 0) {
+      $row = mysqli_fetch_array($result);
+      if (count($row) > 0) {
+        $_SESSION['cli_username'] = $row['NAME'];
+        $_SESSION['cli_id'] = $row['ID'];
+        $_SESSION['cli_contact'] = $row['CONTACT_NUMBER'];
+        $_SESSION['cli_address'] = $row['ADDRESS'];
+        $status = '200';
+        $msg = 'Success';
+      } else {
+        $status = '400';
+        $msg = 'Error, User not found!!';
+      }
+    }
+    // else {
+    //   $status = '400';
+    //   $msg = 'Error, User not found!!';
+    // }
   }
-} else {
+}
+else {
   $status = '400';
   $msg = 'Error, Database connection error. Check your database configuration';
 }
